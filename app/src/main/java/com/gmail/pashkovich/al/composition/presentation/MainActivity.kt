@@ -1,7 +1,8 @@
-package com.gmail.pashkovich.al.composition
+package com.gmail.pashkovich.al.composition.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.gmail.pashkovich.al.composition.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
