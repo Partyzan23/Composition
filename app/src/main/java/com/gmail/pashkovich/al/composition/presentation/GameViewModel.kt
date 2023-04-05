@@ -14,7 +14,7 @@ import com.gmail.pashkovich.al.composition.domain.entity.Question
 import com.gmail.pashkovich.al.composition.domain.usecases.GenerateQuestionUseCase
 import com.gmail.pashkovich.al.composition.domain.usecases.GetGameSettingsUseCase
 
-class GameVIewModel(application: Application) : AndroidViewModel(application) {
+class GameViewModel(application: Application) : AndroidViewModel(application) {
 
     private lateinit var level: Level
     private lateinit var gameSettings: GameSettings
@@ -53,6 +53,7 @@ class GameVIewModel(application: Application) : AndroidViewModel(application) {
         getGameSettings(level)
         startTimer()
         generateQuestion()
+        updateProgress()
     }
 
     fun choseAnswer(number: Int) {
@@ -74,6 +75,9 @@ class GameVIewModel(application: Application) : AndroidViewModel(application) {
     }
 
     private fun calculatePercentOfRightAnswers(): Int {
+        if (countOfQuestions == 0){
+            return 0
+        }
         return ((countOfRightAnswers / countOfQuestions.toDouble()) * 100).toInt()
     }
 
