@@ -36,20 +36,21 @@ class GameFinishedFragment : Fragment() {
     }
 
     private fun bindViews() {
+        binding.gameResult = args.gameResult
         with(binding){
             emojiResult.setImageResource(getSmileResId())
-            textViewRequiredAnswer.text = String.format(
-                getString(R.string.required_score),
-                args.gameResult.gameSettings.minCountOfRightAnswers
-            )
-            textViewScoreAnswer.text = String.format(
-                getString(R.string.score_answer),
-                args.gameResult.countOfRightAnswers
-            )
-            textViewRequiredPercentage.text = String.format(
-                getString(R.string.required_percentage),
-                args.gameResult.gameSettings.minPercentOfRightAnswers
-            )
+//            textViewRequiredAnswer.text = String.format(
+//                getString(R.string.required_score),
+//                args.gameResult.gameSettings.minCountOfRightAnswers
+//            )
+//            textViewScoreAnswer.text = String.format(
+//                getString(R.string.score_answer),
+//                args.gameResult.countOfRightAnswers
+//            )
+//            textViewRequiredPercentage.text = String.format(
+//                getString(R.string.required_percentage),
+//                args.gameResult.gameSettings.minPercentOfRightAnswers
+//            )
             textViewScorePercentage.text = String.format(
                 getString(R.string.score_percentage),
                 getPercentOfRightAnswers()
