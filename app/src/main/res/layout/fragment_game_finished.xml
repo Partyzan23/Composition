@@ -22,7 +22,8 @@
             android:layout_height="0dp"
             android:layout_margin="48dp"
             android:contentDescription="@string/game_over"
-            android:src="@drawable/ic_smile"
+            tools:src="@drawable/ic_smile"
+            app:emojiResult="@{gameResult.winner}"
             app:layout_constraintBottom_toTopOf="@id/textViewRequiredAnswer"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -33,48 +34,52 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="@{gameResult.gameSettings.minCountOfRightAnswersString}"
+            app:requiredAnswers="@{gameResult.gameSettings.minCountOfRightAnswers}"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@id/textViewScoreAnswer"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed" />
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="@string/required_score"/>
 
         <TextView
             android:id="@+id/textViewScoreAnswer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{gameResult.countOfRightAnswersString}"
+            app:scoreAnswers="@{gameResult.countOfRightAnswers}"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@id/textViewRequiredPercentage"
             app:layout_constraintEnd_toEndOf="@id/textViewRequiredAnswer"
             app:layout_constraintStart_toStartOf="@id/textViewRequiredAnswer"
-            app:layout_constraintTop_toBottomOf="@id/textViewRequiredAnswer" />
+            app:layout_constraintTop_toBottomOf="@id/textViewRequiredAnswer"
+            tools:text="@string/score_answer"/>
 
         <TextView
             android:id="@+id/textViewRequiredPercentage"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@{gameResult.gameSettings.minPercentOfRightAnswersString}"
+            app:requiredPercentage="@{gameResult.gameSettings.minPercentOfRightAnswers}"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@id/textViewScorePercentage"
             app:layout_constraintEnd_toEndOf="@id/textViewRequiredAnswer"
             app:layout_constraintStart_toStartOf="@id/textViewRequiredAnswer"
-            app:layout_constraintTop_toBottomOf="@id/textViewScoreAnswer" />
+            app:layout_constraintTop_toBottomOf="@id/textViewScoreAnswer"
+            tools:text="@string/required_percentage"/>
 
         <TextView
             android:id="@+id/textViewScorePercentage"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/score_percentage"
             android:textSize="18sp"
+            app:scorePercentage="@{gameResult}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/textViewRequiredAnswer"
             app:layout_constraintStart_toStartOf="@id/textViewRequiredAnswer"
-            app:layout_constraintTop_toBottomOf="@id/textViewRequiredPercentage" />
+            app:layout_constraintTop_toBottomOf="@id/textViewRequiredPercentage"
+            tools:text="@string/score_percentage"/>
 
         <Button
             android:id="@+id/buttonRetry"
